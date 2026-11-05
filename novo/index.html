@@ -212,37 +212,50 @@
           </div>
         </div>
 
-        <!-- Coluna 2: Foto Vertical em Arco do Cantinho do Café Real -->
+        <!-- Coluna 2: Foto Principal em Destaque — Cantinho do Café no Fogão Antigo -->
         <div class="hero-col-arch">
-          <div class="arch-frame">
-            <img src="assets/img/espaco-loja-2.webp" alt="Cantinho do Café no galpão da Dona Zina na Serra do Cipó com fogão antigo, bule amarelo e louças" width="600" height="780" fetchpriority="high">
+          <div class="arch-frame" onclick="abrirLightbox('assets/img/cantinho-cafe-fogao-destaque.webp', 'Cantinho do Café no Fogão com Xícaras de Coração')" style="cursor: pointer;">
+            <img src="assets/img/cantinho-cafe-fogao-destaque.webp" alt="Cantinho do Café no fogão antigo com mancebo de xícaras de coração, caminho de crochê e pano de prato de bananas" width="768" height="1024" fetchpriority="high">
             <div class="arch-caption-float">
-              <span>Cantinho do Café no nosso galpão</span>
-              <em>Peças a partir de R$ 10</em>
+              <span>Cantinho do Café no Fogão</span>
+              <em>Mancebo, xícaras & crochês</em>
             </div>
           </div>
         </div>
 
-        <!-- Coluna 3: Janela Florida + Garantia de Entrega -->
+        <!-- Coluna 3: Dupla de Destaques Imediatos — Colcha na Singer & Gengibre do Quintal -->
         <div class="hero-col-side">
-          <div class="side-window-card">
-            <div class="side-window-img-wrap">
-              <img src="assets/img/janela-florida-cipo.webp" alt="Janela rústica de madeira verde cercada de flores rosa no galpão da Dona Zina" width="440" height="360">
+          
+          <!-- Destaque 1: Colchas de Retalho na Singer -->
+          <article class="hero-highlight-card" onclick="abrirLightbox('assets/img/colcha-retalhos-singer-destaque.webp', 'Colcha de Retalhos Artesanal costurada na máquina Singer')" style="cursor: pointer;">
+            <div class="hero-highlight-thumb">
+              <img src="assets/img/colcha-retalhos-singer-destaque.webp" alt="Quarto rústico montado com colcha de retalhos dourada e azul com babado e detalhes da costura na máquina Singer" width="480" height="360">
+              <span class="hero-highlight-badge">Tradição na Singer</span>
             </div>
-            <div class="side-window-meta">
-              <strong>Nossa janela na Serra do Cipó</strong>
-              <p>Rua Flor de Maio, 59 — descendo em frente ao Supermercados BH.</p>
+            <div class="hero-highlight-body">
+              <strong>Colchas de Retalho Artesanais</strong>
+              <p>Costura reforçada na máquina Singer com babado farto.</p>
+              <button type="button" class="hero-card-zap-link" onclick="event.stopPropagation(); pedirPecaWhatsApp('Colchas de Retalho Artesanais na Singer')">
+                <span>Ver opções no WhatsApp →</span>
+              </button>
             </div>
-          </div>
+          </article>
 
-          <div class="side-Protected-box">
-            <h2>Mora longe da Serra?</h2>
-            <p>A gente filma as peças na hora pelo WhatsApp, monta sua caixa com plástico bolha duplo e despacha para a sua cidade.</p>
-            <a href="#encomendar" class="side-Protected-link">
-              <span>Simular meu pedido e frete</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
+          <!-- Destaque 2: Cristais de Gengibre do Quintal da Serra -->
+          <article class="hero-highlight-card" onclick="abrirLightbox('assets/img/gengibre-cristalizado-serra.webp', 'Cristais de Gengibre colhidos no quintal na Serra do Cipó')" style="cursor: pointer;">
+            <div class="hero-highlight-thumb">
+              <img src="assets/img/gengibre-cristalizado-serra.webp" alt="Pote derramando cristais de gengibre doce cristalizado artesanal sobre tábua rústica de madeira" width="480" height="300">
+              <span class="hero-highlight-badge" style="background-color: var(--color-gold); color: var(--color-coffee);">Doce do Quintal</span>
+            </div>
+            <div class="hero-highlight-body">
+              <strong>Cristais de Gengibre da Serra</strong>
+              <p>Plantado no quintal e cristalizado no tacho no Cipó.</p>
+              <button type="button" class="hero-card-zap-link" onclick="event.stopPropagation(); pedirPecaWhatsApp('Potinhos de Gengibre Cristalizado do Quintal')">
+                <span>Pedir potinho no WhatsApp →</span>
+              </button>
+            </div>
+          </article>
+
         </div>
 
       </div>
@@ -691,7 +704,7 @@
           <!-- Painel 1: Colchas de Retalho e Quarto Completo no Galpão -->
           <div class="craft-feature-panel">
             <div class="craft-photo-pair">
-              <img src="assets/img/colcha-quarto-galpao.webp" alt="Quarto montado no galpão da Dona Zina com colcha de retalhos na cama, chapéus na parede e guarda-roupa antigo de madeira" width="460" height="320" loading="lazy">
+              <img src="assets/img/colcha-retalhos-singer-destaque.webp" alt="Quarto montado no galpão da Dona Zina com colcha de retalhos na cama, chapéus na parede e máquina Singer" width="460" height="320" loading="lazy">
               <img src="assets/img/colcha-retalho-artesanal.webp" alt="Máquina de costura Singer antiga costurando colcha de retalhos em tons dourados e terrosos" width="320" height="320" loading="lazy">
             </div>
             <div class="craft-panel-text">
