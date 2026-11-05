@@ -1,0 +1,10 @@
+# Git Ignore para o projeto Dona Zina Coisas di Vó
+*.mp4
+*.xz
+*.zip
+*.log
+.DS_Store
+Thumbs.db
+node_modules/
+.vscode/
+.idea/

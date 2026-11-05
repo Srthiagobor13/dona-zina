@@ -1,0 +1,51 @@
+{
+  "nome": "Dona Zina Coisas di Vó",
+  "nome_alternativo": "Dona Zina Coisas de Vó",
+  "segmento": "Decoração Afetiva, Artesanato Mineiro e Mesa Posta",
+  "slogan": "O galpão mais charmoso da Serra do Cipó · O charme que transforma seu lar",
+  "whatsapp": "(31) 99848-0011",
+  "whatsapp_raw": "5531998480011",
+  "instagram": "@donazinacoisa_di_vo",
+  "instagram_url": "https://www.instagram.com/donazinacoisa_di_vo/",
+  "endereco": {
+    "logradouro": "Rua Flor de Maio, 59",
+    "bairro": "Centrinho",
+    "cidade": "Santana do Riacho (Serra do Cipó)",
+    "estado": "MG",
+    "referencia": "Descendo em frente ao Supermercados BH"
+  },
+  "entrega": "Enviamos com carinho e embalagem reforçada para todo o Brasil",
+  "cupom": "SERRADOCIPO",
+  "categorias_produtos": [
+    {
+      "id": "mesa-posta",
+      "nome": "Mesa Posta & Cozinha de Vó",
+      "descricao": "Louças coloridas em tons terrosos e pastéis, canecas floreiras delicadas, pratos de cerâmica, taças e talheres que transformam cada refeição em afeto.",
+      "imagem": "assets/img/canecas-floreiras-delicadas.webp"
+    },
+    {
+      "id": "decoracao-afetiva",
+      "nome": "Decoração Afetiva & Bambu",
+      "descricao": "Peças artesanais em bambu (nosso campeão de vendas), vasos decorativos de cerâmica, arranjos rústicos, pendurecos e relíquias de garimpo.",
+      "imagem": "assets/img/pecas-decor-bambu.webp"
+    },
+    {
+      "id": "colchas-texteis",
+      "nome": "Colchas de Retalho & Têxteis",
+      "descricao": "Colchas de retalhos autênticas feitas à mão onde cada pedacinho conta uma história, além de saquinhos artesanais em tecido bordado para presentes.",
+      "imagem": "assets/img/colcha-retalho-artesanal.webp"
+    },
+    {
+      "id": "sabores-serra",
+      "nome": "Sabores da Serra & Quitandas",
+      "descricao": "Cristais de gengibre artesanal cultivado no quintal da Dona Zina na Serra do Cipó. Sabor marcante, digestivo e anti-inflamatório natural.",
+      "imagem": "assets/img/gengibre-cristalizado-serra.webp"
+    },
+    {
+      "id": "moda-acessorios",
+      "nome": "Bolsas & Chapéus de Passeio",
+      "descricao": "Bolsas femininas artesanais e chapéus em palha natural para passear na serra ou compor looks leves e elegantes.",
+      "imagem": "assets/img/bolsas-chapeus-artesanais.webp"
+    }
+  ]
+}
