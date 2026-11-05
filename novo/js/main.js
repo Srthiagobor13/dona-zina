@@ -76,30 +76,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterPills = document.querySelectorAll('.filter-pill');
   const prodCards = document.querySelectorAll('.prod-card');
 
-  filterPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      const filterValue = pill.getAttribute('data-filter');
+  const aplicarFiltroCatalogo = (filterValue, animate = true) => {
+    const selectedPill = Array.from(filterPills).find(pill => pill.getAttribute('data-filter') === filterValue);
+    if (!selectedPill) return;
 
-      filterPills.forEach(p => {
-        p.classList.remove('active');
-        p.setAttribute('aria-selected', 'false');
-      });
-      pill.classList.add('active');
-      pill.setAttribute('aria-selected', 'true');
-
-      prodCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filterValue === 'todos' || category === filterValue) {
-          card.classList.remove('hidden');
-          if (!isReducedMotion && typeof gsap !== 'undefined') {
-            gsap.fromTo(card, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
-          }
-        } else {
-          card.classList.add('hidden');
-        }
-      });
+    filterPills.forEach(pill => {
+      const isSelected = pill === selectedPill;
+      pill.classList.toggle('active', isSelected);
+      pill.setAttribute('aria-selected', String(isSelected));
     });
+
+    prodCards.forEach(card => {
+      const category = card.getAttribute('data-category');
+      if (filterValue === 'todos' || category === filterValue) {
+        card.classList.remove('hidden');
+        if (animate && !isReducedMotion && typeof gsap !== 'undefined') {
+          gsap.fromTo(card, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+        }
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  };
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => aplicarFiltroCatalogo(pill.getAttribute('data-filter')));
   });
+
+  const requestedCategory = new URLSearchParams(window.location.search).get('categoria');
+  if (requestedCategory) aplicarFiltroCatalogo(requestedCategory, false);
 
   // ==========================================================================
   // 5. PEDIDO DIRETO DE PEÇA E SACOLA DE DESEJOS ("MINHA LISTA")
@@ -314,4 +319,5 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     }
   }
+
 });
