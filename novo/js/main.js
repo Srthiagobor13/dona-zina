@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       listaDesejos.add(nomePeca);
       btnEl.classList.add('added');
-      btnEl.innerHTML = '<span>✓ Na sua lista</span>';
+      btnEl.innerHTML = '<span>Na sua lista</span>';
     }
     atualizarBarraLista();
   };
