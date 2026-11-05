@@ -588,8 +588,37 @@ p {
   font-size: clamp(1.06rem, 1.3vw, 1.22rem);
   color: var(--text-body);
   margin-top: var(--s-5);
+  margin-bottom: var(--s-4);
+  max-width: 52ch;
+}
+
+.hero-pantry-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
   margin-bottom: var(--s-6);
-  max-width: 50ch;
+  max-width: 100%;
+}
+
+.pantry-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-strong);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  box-shadow: 0 2px 8px rgba(43, 22, 16, 0.05);
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast), border-color var(--dur-fast);
+}
+
+.pantry-pill:hover {
+  transform: translateY(-2px);
+  background-color: #FFFFFF;
+  border-color: var(--color-gold);
 }
 
 .hero-cta-stack {
@@ -884,6 +913,30 @@ p {
   line-height: 1.4;
 }
 
+.story-invitation-box {
+  margin: var(--s-6) 0 var(--s-6);
+  padding: var(--s-5);
+  background: linear-gradient(135deg, rgba(217, 155, 38, 0.12), rgba(148, 55, 33, 0.08));
+  border: 1px dashed var(--color-terracotta);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.story-invitation-box .invitation-title {
+  font-family: var(--font-display);
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--color-coffee);
+  margin-bottom: 4px;
+}
+
+.story-invitation-box .invitation-location {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--color-olive);
+  margin-bottom: 0;
+}
+
 .story-metrics-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -969,6 +1022,13 @@ p {
   color: var(--text-on-dark);
   border-color: var(--bg-coffee);
   box-shadow: 0 6px 16px rgba(43, 22, 16, 0.18);
+}
+
+@media (max-width: 600px) {
+  .filter-pill {
+    padding: 8px 13px;
+    font-size: 0.8rem;
+  }
 }
 
 /* Bento & Editorial Product Grid */
