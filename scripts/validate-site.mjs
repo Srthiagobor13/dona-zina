@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const siteDir = path.join(rootDir, 'novo');
 const pages = ['index.html', 'produtos.html', 'galeria.html'];
+const publicOrigin = 'https://donazinacoisadivo.vercel.app';
 const errors = [];
 
 for (const page of pages) {
@@ -12,9 +13,23 @@ for (const page of pages) {
   const html = fs.readFileSync(pagePath, 'utf8');
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
+  const canonical = html.match(/<link rel="canonical" href="([^"]+)">/)?.[1];
 
   if (duplicateIds.length) {
     errors.push(`${page}: IDs duplicados: ${[...new Set(duplicateIds)].join(', ')}`);
+  }
+
+  if (!canonical?.startsWith(`${publicOrigin}/novo/`)) {
+    errors.push(`${page}: URL canônica ausente ou fora do domínio público`);
+  }
+  if (!html.includes('<meta name="robots" content="index, follow')) {
+    errors.push(`${page}: meta robots index/follow ausente`);
+  }
+  if (!html.includes('<meta name="twitter:card" content="summary_large_image">')) {
+    errors.push(`${page}: Twitter Card ausente`);
+  }
+  if (!html.includes('"@type": "WebSite"') || !html.includes('"@type": "HomeGoodsStore"')) {
+    errors.push(`${page}: dados estruturados de site ou negócio local ausentes`);
   }
 
   for (const match of html.matchAll(/\b(?:src|href)="([^"]+)"/g)) {
@@ -37,9 +52,24 @@ for (const page of pages) {
   }
 }
 
+for (const requiredFile of ['robots.txt', 'sitemap.xml']) {
+  if (!fs.existsSync(path.join(rootDir, requiredFile))) errors.push(`raiz: ${requiredFile} ausente`);
+  if (!fs.existsSync(path.join(siteDir, requiredFile))) errors.push(`novo: ${requiredFile} ausente`);
+}
+
+const sitemap = fs.existsSync(path.join(rootDir, 'sitemap.xml'))
+  ? fs.readFileSync(path.join(rootDir, 'sitemap.xml'), 'utf8')
+  : '';
+for (const page of pages) {
+  const expectedUrl = page === 'index.html'
+    ? `${publicOrigin}/novo/`
+    : `${publicOrigin}/novo/${page}`;
+  if (!sitemap.includes(`<loc>${expectedUrl}</loc>`)) errors.push(`sitemap: URL ausente: ${expectedUrl}`);
+}
+
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
 
-console.log('Validação concluída: links locais, assets, IDs e JSON-LD estão consistentes.');
+console.log('Validação concluída: links, assets, IDs, JSON-LD, metadados, robots e sitemap estão consistentes.');

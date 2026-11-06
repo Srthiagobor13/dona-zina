@@ -31,6 +31,14 @@ function extractElement(html, marker, tagName) {
 
 function replaceElement(html, marker, tagName, replacement) {
   const element = extractElement(html, marker, tagName);
+  const elementStart = html.indexOf(element);
+  const lineStart = html.lastIndexOf('\n', elementStart) + 1;
+  const indentation = html.slice(lineStart, elementStart);
+
+  if (/^[ \t]*$/.test(indentation)) {
+    return html.slice(0, lineStart) + replacement + html.slice(elementStart + element.length);
+  }
+
   return html.replace(element, replacement);
 }
 
@@ -66,7 +74,7 @@ function setPageMetadata(html, metadata) {
 
 const faqStructuredData = {
   '@type': 'FAQPage',
-  '@id': 'https://donazinacipov.com.br/produtos.html#faq',
+  '@id': 'https://donazinacoisadivo.vercel.app/novo/produtos.html#faq',
   mainEntity: [
     {
       '@type': 'Question',
@@ -283,11 +291,11 @@ home = rewriteNavigation(home);
 home = setBodyClass(home, 'page-home');
 home = configureStructuredData(home, { includeFaq: false });
 home = setPageMetadata(home, {
-  title: 'Dona Zina Coisas di Vó | Artesanato e Afeto na Serra do Cipó',
-  description: 'Conheça a Dona Zina Coisas di Vó na Serra do Cipó: artesanato, louças, quitutes, colchas e decoração afetiva com envio para todo o Brasil.',
-  url: 'https://donazinacipov.com.br/',
-  ogTitle: 'Dona Zina Coisas di Vó — O Aconchego de Minas no Seu Lar',
-  image: 'assets/img/espaco-loja-2.webp'
+  title: 'Dona Zina Coisas di Vó | Loja Coisa de Vó na Serra do Cipó',
+  description: 'Visite a Dona Zina Coisas di Vó, a loja Coisa de Vó da Serra do Cipó: artesanato mineiro, quitutes, mesa posta, colchas e presentes com envio nacional.',
+  url: 'https://donazinacoisadivo.vercel.app/novo/',
+  ogTitle: 'Dona Zina Coisas di Vó — Artesanato e Sabores da Serra do Cipó',
+  image: 'https://donazinacoisadivo.vercel.app/novo/assets/img/novas/sorriso-gengibre-serra.webp'
 });
 
 let productsPage = `${beforeMain}${mainMarker}\n${productsHero}\n\n${productsSection}\n\n${conciergeSection}\n\n    <section id="faq" class="section-page-faq" aria-label="Dúvidas frequentes sobre compras">\n      <div class="container">\n${faqWrap}\n      </div>\n    </section>\n\n</main>${afterMain}`;
@@ -296,15 +304,15 @@ productsPage = productsPage.replace('<a href="produtos.html" class="btn btn-coff
 productsPage = productsPage.replace('<a href="produtos.html#encomendar" class="btn btn-outline">Montar meu pedido</a>', '<a href="#encomendar" class="btn btn-outline">Montar meu pedido</a>');
 productsPage = setBodyClass(productsPage, 'page-products');
 productsPage = setPageMetadata(productsPage, {
-  title: 'Produtos Dona Zina | Artesanato, Louças e Quitutes da Serra do Cipó',
-  description: 'Explore o catálogo da Dona Zina: bolsas artesanais, biscoitos, geleias, louças, cerâmicas, colchas e decoração. Peça pelo WhatsApp com envio nacional.',
-  url: 'https://donazinacipov.com.br/produtos.html',
-  ogTitle: 'Produtos Dona Zina — Artesanato, Quitutes e Decoração Afetiva',
-  image: 'assets/img/novas/cesta-artesanal-doces-caseiros.webp'
+  title: 'Produtos Dona Zina Coisas di Vó | Artesanato e Quitutes Mineiros',
+  description: 'Conheça os produtos da Dona Zina Coisas di Vó: artesanato mineiro, louças, colchas, bolsas, biscoitos, geleias e gengibre da Serra do Cipó.',
+  url: 'https://donazinacoisadivo.vercel.app/novo/produtos.html',
+  ogTitle: 'Produtos Dona Zina — Artesanato, Quitutes e Coisas de Vó',
+  image: 'https://donazinacoisadivo.vercel.app/novo/assets/img/novas/cesta-artesanal-doces-caseiros.webp'
 });
 productsPage = configureStructuredData(productsPage, {
   includeFaq: true,
-  faqId: 'https://donazinacipov.com.br/produtos.html#faq'
+  faqId: 'https://donazinacoisadivo.vercel.app/novo/produtos.html#faq'
 });
 
 let galleryPage = `${beforeMain}${mainMarker}\n${galleryHero}\n\n${portfolioSection}\n\n${galleryCta}\n\n</main>${afterMain}`;
@@ -312,11 +320,11 @@ galleryPage = rewriteNavigation(galleryPage);
 galleryPage = galleryPage.replace('<a href="galeria.html" class="btn btn-coffee">Ver todas as fotos</a>', '<a href="#portfolio" class="btn btn-coffee">Ver todas as fotos</a>');
 galleryPage = setBodyClass(galleryPage, 'page-gallery');
 galleryPage = setPageMetadata(galleryPage, {
-  title: 'Galeria Dona Zina | Fotos Reais do Galpão na Serra do Cipó',
-  description: 'Veja fotos reais dos ambientes, produtos e detalhes do galpão Dona Zina Coisas di Vó na Serra do Cipó, Minas Gerais.',
-  url: 'https://donazinacipov.com.br/galeria.html',
-  ogTitle: 'Galeria Dona Zina — Um Passeio pelo Galpão na Serra do Cipó',
-  image: 'assets/img/espaco-loja-3.webp'
+  title: 'Galeria Dona Zina Coisas di Vó | Loja na Serra do Cipó',
+  description: 'Veja fotos reais da Dona Zina Coisas di Vó, dos produtos artesanais e do galpão localizado no centrinho da Serra do Cipó, em Minas Gerais.',
+  url: 'https://donazinacoisadivo.vercel.app/novo/galeria.html',
+  ogTitle: 'Galeria Dona Zina Coisas di Vó — Fotos Reais do Galpão',
+  image: 'https://donazinacoisadivo.vercel.app/novo/assets/img/espaco-loja-3.webp'
 });
 galleryPage = configureStructuredData(galleryPage, { includeFaq: false });
 
@@ -327,3 +335,4 @@ fs.writeFileSync(productsPath, tidy(productsPage), 'utf8');
 fs.writeFileSync(galleryPath, tidy(galleryPage), 'utf8');
 
 console.log('Home, catálogo e galeria reorganizados com sucesso.');
+await import('./seo-site.mjs');

@@ -90,6 +90,20 @@ python -m http.server 8080 --directory novo
 
 Abra no navegador em: `http://localhost:8080`
 
+## 🔎 SEO e Indexação
+
+- URL pública atual: `https://donazinacoisadivo.vercel.app/novo/`
+- Sitemap: `https://donazinacoisadivo.vercel.app/sitemap.xml`
+- Robots: `https://donazinacoisadivo.vercel.app/robots.txt`
+- Metadados, dados estruturados e sitemap são atualizados com:
+
+```bash
+node scripts/seo-site.mjs
+node scripts/validate-site.mjs
+```
+
+O script `restructure-site.mjs` também executa a atualização de SEO automaticamente. Depois da publicação, envie o sitemap pelo Google Search Console para acompanhar descoberta, indexação e eventuais erros.
+
 ---
 
 ## 📦 Publicação no HostGator / Vercel / Netlify

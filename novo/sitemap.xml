@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://donazinacoisadivo.vercel.app/novo/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <image:image>
+      <image:loc>https://donazinacoisadivo.vercel.app/novo/assets/img/novas/sorriso-gengibre-serra.webp</image:loc>
+      <image:title>Dona Zina Coisas di Vó na Serra do Cipó</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://donazinacoisadivo.vercel.app/novo/produtos.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <image:image>
+      <image:loc>https://donazinacoisadivo.vercel.app/novo/assets/img/novas/cesta-artesanal-doces-caseiros.webp</image:loc>
+      <image:title>Produtos artesanais Dona Zina Coisas di Vó</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://donazinacoisadivo.vercel.app/novo/galeria.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <image:image>
+      <image:loc>https://donazinacoisadivo.vercel.app/novo/assets/img/espaco-loja-3.webp</image:loc>
+      <image:title>Galeria do galpão Dona Zina na Serra do Cipó</image:title>
+    </image:image>
+  </url>
+</urlset>
