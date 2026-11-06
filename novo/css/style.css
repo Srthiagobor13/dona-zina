@@ -690,6 +690,12 @@ p {
   transform: translateY(-4%);
 }
 
+.arch-frame img.hero-owner-photo {
+  height: 100%;
+  object-position: center top;
+  transform: none;
+}
+
 .arch-caption-float {
   position: absolute;
   bottom: var(--s-4);
