@@ -6,6 +6,8 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const siteDir = path.join(rootDir, 'novo');
 const pages = ['index.html', 'produtos.html', 'galeria.html'];
 const publicOrigin = 'https://donazinacoisadivo.vercel.app';
+const verificationFile = 'google5eae93b57f7080cb.html';
+const verificationToken = `google-site-verification: ${verificationFile}`;
 const errors = [];
 
 for (const page of pages) {
@@ -57,6 +59,20 @@ for (const requiredFile of ['robots.txt', 'sitemap.xml']) {
   if (!fs.existsSync(path.join(siteDir, requiredFile))) errors.push(`novo: ${requiredFile} ausente`);
 }
 
+for (const directory of [rootDir, siteDir]) {
+  const verificationPath = path.join(directory, verificationFile);
+  const label = directory === rootDir ? 'raiz' : 'novo';
+
+  if (!fs.existsSync(verificationPath)) {
+    errors.push(`${label}: arquivo de verificação do Google ausente`);
+    continue;
+  }
+
+  if (fs.readFileSync(verificationPath, 'utf8').trim() !== verificationToken) {
+    errors.push(`${label}: token de verificação do Google inválido`);
+  }
+}
+
 const sitemap = fs.existsSync(path.join(rootDir, 'sitemap.xml'))
   ? fs.readFileSync(path.join(rootDir, 'sitemap.xml'), 'utf8')
   : '';
@@ -72,4 +88,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Validação concluída: links, assets, IDs, JSON-LD, metadados, robots e sitemap estão consistentes.');
+console.log('Validação concluída: links, assets, IDs, JSON-LD, metadados, robots, sitemap e verificação do Google estão consistentes.');
