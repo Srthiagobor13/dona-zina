@@ -2425,6 +2425,40 @@ body {
   transform: scaleX(1);
 }
 
+/* Enquadramento das novas fotos verticais dos Cristais de Gengibre */
+.hero-highlight-thumb img.ginger-card-image {
+  object-position: center 42%;
+}
+
+.prod-img-wrap.ginger-product-media {
+  background-color: #8d4e22;
+}
+
+.prod-img-wrap.ginger-product-media img {
+  object-position: center 46%;
+}
+
+.craft-photo-pair.ginger-photo-pair {
+  grid-template-columns: 1fr 1fr;
+}
+
+.craft-photo-pair.ginger-photo-pair img {
+  height: 430px;
+  object-fit: contain;
+  background-color: #8d4e22;
+}
+
+@media (max-width: 600px) {
+  .craft-photo-pair.ginger-photo-pair {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .craft-photo-pair.ginger-photo-pair img {
+    height: 300px;
+  }
+}
+
 .internal-hero {
   padding: var(--s-9) 0 var(--s-8);
   background:
